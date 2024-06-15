@@ -4,7 +4,6 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { motion } from "framer-motion";
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
-import { Fade } from 'react-reveal';
 
 interface CollectionSlidesProps {
   // Define props interface if needed
@@ -12,7 +11,7 @@ interface CollectionSlidesProps {
 
 const CollectionSlides: React.FC<CollectionSlidesProps> = () => {
   const [activeTab, setActiveTab] = useState('events');
-  const sliderRef = useRef<Slider>(null); // Define sliderRef using useRef
+  const sliderRef = useRef<Slider>(null);
 
   const handleTabClick = (tab: string) => {
     setActiveTab(tab);
@@ -95,23 +94,21 @@ const CollectionSlides: React.FC<CollectionSlidesProps> = () => {
       <div className="slider-container ml-24 mr-3 relative">
         <Slider {...settings} ref={sliderRef} >
           {imageUrls.map((item, index) => (
-            <Fade right>
-              <motion.div
-                key={index}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                variants={imageVariants}
-                transition={transition}
-                className="transform-preserve-3d px-3"  
-              >
-                <div className=" rounded-lg shadow-lg">
-                  <h2 className="text-xl font-bold mb-2">{item.head}</h2>
-                  <p className="text-sm mb-4">{item.para}</p>
-                  <img src={item.image} alt={item.head} className="w-full h-[630px] object-cover rounded-lg" />
-                </div>
-              </motion.div>
-            </Fade>
+            <motion.div
+              key={index}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              variants={imageVariants}
+              transition={transition}
+              className="transform-preserve-3d px-3"
+            >
+              <div className="rounded-lg shadow-lg">
+                <h2 className="text-xl font-bold mb-2">{item.head}</h2>
+                <p className="text-sm mb-4">{item.para}</p>
+                <img src={item.image} alt={item.head} className="w-full h-[630px] object-cover rounded-lg" />
+              </div>
+            </motion.div>
           ))}
         </Slider>
         <div className="absolute -bottom-4 w-full flex justify-center gap-3 px-5 pb-5">

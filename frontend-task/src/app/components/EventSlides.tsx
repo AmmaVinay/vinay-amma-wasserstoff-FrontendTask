@@ -4,7 +4,6 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { motion } from "framer-motion";
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
-import { Fade } from 'react-reveal';
 
 interface EventSlidesProps {
   // Define props interface if needed
@@ -101,8 +100,7 @@ const EventSlides: React.FC<EventSlidesProps> = () => {
       <div className="slider-container ml-24 mr-3 relative">
         <Slider {...settings} ref={sliderRef} >
           {imageUrls.map((item, index) => (
-              <Fade right >
-                  <motion.div
+                   <motion.div
                     key={index}
                     initial="enter"
                     animate="center"
@@ -140,8 +138,7 @@ const EventSlides: React.FC<EventSlidesProps> = () => {
                               </div>
                               </div>
                   </motion.div>
-              </Fade>
-          ))}
+           ))}
         </Slider>
         <div className="absolute -bottom-4 w-full flex justify-center gap-3 px-5 pb-5">
           <button onClick={() => sliderRef.current?.slickPrev()} className="bg-gray-800 text-white rounded-full w-10 h-10 flex items-center justify-center focus:outline-none">

@@ -1,5 +1,5 @@
 import React from "react";
-import { Fade, Zoom } from "react-reveal";
+import { motion } from "framer-motion";
 
 export default function Events() {
   const collectiblesData = [
@@ -31,25 +31,45 @@ export default function Events() {
   ];
 
   return (
-    <div className=" rounded-lg shadow-lg pl-12 pb-10">
-      <Fade top>
+    <div className="rounded-lg shadow-lg pl-12 pb-10">
+      <motion.div
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
         <h1 className="font-bold text-2xl md:text-3xl leading-tight mt-8 mb-8">Explore Your First Collectible</h1>
-      </Fade>
-      <div className=" w-[316px] h-[302px]">
-        <Fade top>
+      </motion.div>
+      <div className="w-[316px] h-[302px]">
+        <motion.div
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
           <h1 className="font-extrabold text-3xl w-[200px] leading-none md:text-5xl mb-3">Meta Lives</h1>
-        </Fade>
-        <Fade bottom>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
           <h5 className="text-xl md:text-2xl font-bold mb-2">Live in Astrix</h5>
-        </Fade>
-        <Fade bottom>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        >
           <p className="text-base md:text-lg leading-relaxed mb-8">
-            Lorem ipsum dolor sit amet consectetur. Ac lorem massa in morbi et sed ipsum. Pellentesque mattis condimentum ut nulla. 
+            Lorem ipsum dolor sit amet consectetur. Ac lorem massa in morbi et sed ipsum. Pellentesque mattis condimentum ut nulla.
           </p>
-        </Fade>
-      
+        </motion.div>
+
         <div className="flex items-center w-[368px] space-x-3">
-          <Fade left>
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
             <div className="flex -space-x-3">
               <img
                 className="h-9 w-9 rounded-full"
@@ -77,57 +97,66 @@ export default function Events() {
                 alt=""
               />
             </div>
-          </Fade>
-           <Fade right>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+          >
             <p className="text-[#fffcf7] w-[212px] ml-6 text-base font-medium leading-[1] p-2 rounded-lg">
               22k people interested
             </p>
-          </Fade>
-
+          </motion.div>
         </div>
       </div>
-      <Fade bottom>
-        <h1 className=" my-8 w-[81px] h-[18px] pt-4 font-lexend text-3xl font-medium leading-[14px]">
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.6 }}
+      >
+        <h1 className="my-8 w-[81px] h-[18px] pt-4 font-lexend text-3xl font-medium leading-[14px]">
           Collectibles
         </h1>
-      </Fade>
+      </motion.div>
 
-      <div className="flex w-[500px] mb-4 gap-[11px] overflow-x-scroll smooth-scroll">
+      <div className="flex w-[500px] mb-4 gap-[11px] overflow-x-scroll  smooth-scroll">
         {collectiblesData.map((collectible, index) => (
-          <Fade bottom>
-            <div 
-              key={index} 
-              className="flex-shrink-0 w-[180px] flex flex-col gap-4 rounded-2xl bg-[#B9A0FF] shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl p-3"
-            >
-              <div className="flex justify-between items-center">
-                <p className="bg-gray-800 text-white text-sm rounded-lg px-2 py-1">
-                  {collectible.year}
-                </p>
-                <p className="text-black text-sm">
-                  by <span className="font-bold">{collectible.author}</span>
-                </p>
-              </div>
-              
-              <div className="text-center">
-                <h1 className="text-black font-semibold text-base leading-tight mb-2">
-                  {collectible.name}
-                </h1>
-                <div className="flex justify-center">
-                  <img
-                    src={collectible.imageURL}
-                    className="h-44 w-44 border-2 object-cover rounded-2xl  border-black"
-                    alt="Collectible Image"
-                  />
-                </div>
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 * index }}
+            key={index}
+            className="flex-shrink-0 w-[180px] flex flex-col gap-4 rounded-2xl bg-[#B9A0FF] shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl p-3"
+          >
+            <div className="flex justify-between items-center">
+              <p className="bg-gray-800 text-white text-sm rounded-lg px-2 py-1">
+                {collectible.year}
+              </p>
+              <p className="text-black text-sm">
+                by <span className="font-bold">{collectible.author}</span>
+              </p>
+            </div>
+            
+            <div className="text-center">
+              <h1 className="text-black font-semibold text-base leading-tight mb-2">
+                {collectible.name}
+              </h1>
+              <div className="flex justify-center">
+                <img
+                  src={collectible.imageURL}
+                  className="h-44 w-44 border-2 object-cover rounded-2xl border-black"
+                  alt="Collectible Image"
+                />
               </div>
             </div>
-
-          </Fade>
+          </motion.div>
         ))}
       </div>
 
-      <div className="flex justify-end ">
-        <button className="text-black animate-pulse mt-12 mr-10 md:mr-2 w-[154px] font-extrabold  text-center bg-[#FFCA5F]  rounded-full py-3 px-4">Join Waitlist </button>
+      <div className="flex justify-end">
+        <button className="text-black animate-pulse mt-12 mr-10 md:mr-2 w-[154px] font-extrabold text-center bg-[#FFCA5F] rounded-full py-3 px-4">
+          Join Waitlist
+        </button>
       </div>
       <style jsx>
         {`
@@ -142,7 +171,6 @@ export default function Events() {
           }
         `}
       </style>
-
-     </div>
+    </div>
   );
 }
